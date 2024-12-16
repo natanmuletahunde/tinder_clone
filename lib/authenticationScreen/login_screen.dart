@@ -81,15 +81,41 @@ import 'package:tinder/widgets/custom_text_field_widget.dart';
                   'Login',
                   style: TextStyle(
                     color: Colors.black,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold
                   ),
                 ),
-               ) ,
+               ),
+              
               ),
               
-            )
+            ),
+            const SizedBox(height: 10,),
+            
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+                 const Text(
+                  "Don't have an account? ",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey
+                  ),
+                 ),
+                 InkWell(
+                  onTap: () {
 
-                
+                  },
+                  child:  const Text(
+                    'Create Now',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                    ),
+                  ),
+                 )
+             ],
+            )    
               ],
             ),
         ),
