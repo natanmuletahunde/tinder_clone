@@ -19,12 +19,23 @@ import 'package:flutter/material.dart';
                 'images/logo.png',
                 width:200,
                ),
-               Text(
+               const  Text(
                 'Welcome',
                 style: TextStyle(
-                  
+                 fontSize: 22,
+                 fontWeight: FontWeight.bold,
                 ),
-               )
+               ),
+                 const SizedBox(height: 10,),
+                const  Text(
+                ' Login now to find your best match',
+                style: TextStyle(
+                 fontSize: 18,
+                 fontWeight: FontWeight.bold,
+                ),
+               ),
+             
+
               ],
             ),
         ),
