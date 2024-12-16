@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
  } 
  
  class _LoginScreenState extends State<LoginScreen> {
+
+    TextEditingController emailTextEditingController = TextEditingController();
+    TextEditingController passwordTextEditingController = TextEditingController();
    @override
    Widget build(BuildContext context) {
      return Scaffold(
@@ -34,8 +37,9 @@ import 'package:flutter/material.dart';
                  fontWeight: FontWeight.bold,
                 ),
                ),
-             
-
+                  const SizedBox(height: 120),
+                
+            
               ],
             ),
         ),

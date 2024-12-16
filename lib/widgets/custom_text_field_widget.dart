@@ -21,7 +21,7 @@ class CustomTextFieldWidget extends StatelessWidget {
     return TextField(
      controller: editingController,
      decoration: InputDecoration(
-      labelText: labelText,
+       labelText: labelText,
       prefixIcon: iconData!=null? Icon(iconData):Padding(padding: EdgeInsets.all(8),
       child: Image.asset(assetRef.toString()
       ),
@@ -40,8 +40,11 @@ class CustomTextFieldWidget extends StatelessWidget {
       borderSide: const BorderSide(
         color: Colors.grey
       )
-      )
+      ),
+     
      ),
+      obscureText: isObscure!,
+
 
     );
   }
