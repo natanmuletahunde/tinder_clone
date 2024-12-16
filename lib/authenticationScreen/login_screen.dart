@@ -9,17 +9,17 @@ import 'package:flutter/material.dart';
  class _LoginScreenState extends State<LoginScreen> {
    @override
    Widget build(BuildContext context) {
-     return Scaffold(
-       appBar: AppBar(
-         title: const Center(
-           child:  Text(
-            'Hey Sup Ma Nigga',
-            style: TextStyle(
-              backgroundColor: Colors.white,
-             ),
-           ),
-         ),
-       ),
+     return const  Scaffold(
+      body: SingleChildScrollView(
+        child: Center(
+            child: Column(
+              children: [
+
+              ],
+            ),
+        ),
+      ),
+          
      );
    }
  }
