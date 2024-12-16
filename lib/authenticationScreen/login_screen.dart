@@ -38,20 +38,57 @@ import 'package:tinder/widgets/custom_text_field_widget.dart';
                  fontWeight: FontWeight.bold,
                 ),
                ),
-                  const SizedBox(height: 120),
+                  const SizedBox(height:10),
               // email 
-              CustomTextFieldWidget(
-                  editingController: emailTextEditingController,
-                  labelText: 'Email',
-                  iconData: Icons.email_outlined,
-                  isObscure: false, 
+              SizedBox(
+                width: MediaQuery.of(context).size.width -40,
+                height: 55,
+                child: CustomTextFieldWidget(
+                    editingController: emailTextEditingController,
+                    labelText: 'Email',
+                    iconData: Icons.email_outlined,
+                    isObscure: false, 
+                ),
               ),
-                 CustomTextFieldWidget(
-                  editingController: passwordTextEditingController,
-                  labelText: 'Password',
-                  iconData: Icons.lock_outline,
-                  isObscure: true, 
-              )
+              const SizedBox(height: 20),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width -40,
+                  height: 55,
+                   child: CustomTextFieldWidget(
+                    editingController: passwordTextEditingController,
+                    labelText: 'Password',
+                    iconData: Icons.lock_outline,
+                    isObscure: true, 
+                                 ),
+                 ),
+                 const SizedBox( height: 10,),
+
+            Container(
+              width: MediaQuery.of(context).size.width - 36,
+              height: 55,
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(12)
+                )
+              ),
+              child: InkWell(
+                onTap: (){
+
+                },
+               child:const Center(
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+               ) ,
+              ),
+              
+            )
+
                 
               ],
             ),
