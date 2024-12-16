@@ -25,6 +25,21 @@ class CustomTextFieldWidget extends StatelessWidget {
       prefixIcon: iconData!=null? Icon(iconData):Padding(padding: EdgeInsets.all(8),
       child: Image.asset(assetRef.toString()
       ),
+      ),
+      labelStyle: const TextStyle(
+        fontSize: 18
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(6),
+      borderSide: const BorderSide(
+        color: Colors.grey
+      )
+      ),
+       focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(6),
+      borderSide: const BorderSide(
+        color: Colors.grey
+      )
       )
      ),
 
