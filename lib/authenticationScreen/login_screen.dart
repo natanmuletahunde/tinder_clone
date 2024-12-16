@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tinder/widgets/custom_text_field_widget.dart';
  class LoginScreen extends StatefulWidget {
    const LoginScreen({super.key});
  
@@ -38,8 +39,20 @@ import 'package:flutter/material.dart';
                 ),
                ),
                   const SizedBox(height: 120),
+              // email 
+              CustomTextFieldWidget(
+                  editingController: emailTextEditingController,
+                  labelText: 'Email',
+                  iconData: Icons.email_outlined,
+                  isObscure: false, 
+              ),
+                 CustomTextFieldWidget(
+                  editingController: passwordTextEditingController,
+                  labelText: 'Password',
+                  iconData: Icons.lock_outline,
+                  isObscure: true, 
+              )
                 
-            
               ],
             ),
         ),
