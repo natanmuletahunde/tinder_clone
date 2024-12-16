@@ -17,7 +17,13 @@ import 'package:flutter/material.dart';
                 const SizedBox(height: 120),
                Image.asset(
                 'images/logo.png',
-                width:150,
+                width:200,
+               ),
+               Text(
+                'Welcome',
+                style: TextStyle(
+                  
+                ),
                )
               ],
             ),
