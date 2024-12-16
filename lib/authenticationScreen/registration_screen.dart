@@ -55,6 +55,42 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  Scaffold(
+       body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+                const SizedBox(height: 20,),
+                const Text('Create Account',
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold
+                ),
+                ),
+                 const SizedBox(height: 22,),
+                 const Text(
+                  'to get started Now',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold                  ),
+                 ),
+                const SizedBox(height: 22,),
+                GestureDetector(
+                  onTap: () {
+                    
+                  },
+                  child:const CircleAvatar(
+                    radius: 80,
+                    backgroundImage: AssetImage('images/profile_avatar.jpg'),
+                  ),
+
+                )
+            ],
+          ),
+        ),
+       ),
+    );
   }
 }
