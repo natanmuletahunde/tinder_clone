@@ -9,12 +9,15 @@ import 'package:flutter/material.dart';
  class _LoginScreenState extends State<LoginScreen> {
    @override
    Widget build(BuildContext context) {
-     return const  Scaffold(
+     return Scaffold(
       body: SingleChildScrollView(
         child: Center(
             child: Column(
               children: [
-
+               Image.asset(
+                'images/tinder_logo.png',
+                width:200,
+               )
               ],
             ),
         ),
