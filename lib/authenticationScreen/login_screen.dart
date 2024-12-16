@@ -11,10 +11,12 @@ import 'package:flutter/material.dart';
    Widget build(BuildContext context) {
      return Scaffold(
        appBar: AppBar(
-         title: const Text(
-          'Hey Sup Ma Nigga',
-          style: TextStyle(
-            backgroundColor: Colors.white,
+         title: const Center(
+           child:  Text(
+            'Hey Sup Ma Nigga',
+            style: TextStyle(
+              backgroundColor: Colors.white,
+             ),
            ),
          ),
        ),
