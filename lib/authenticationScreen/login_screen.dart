@@ -9,6 +9,15 @@ import 'package:flutter/material.dart';
  class _LoginScreenState extends State<LoginScreen> {
    @override
    Widget build(BuildContext context) {
-     return Container();
+     return Scaffold(
+       appBar: AppBar(
+         title: const Text(
+          'Hey Sup Ma Nigga',
+          style: TextStyle(
+            backgroundColor: Colors.white,
+           ),
+         ),
+       ),
+     );
    }
  }
