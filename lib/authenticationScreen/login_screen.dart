@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
  
    @override
    State<LoginScreen> createState() => _LoginScreenState();
- }
+ } 
  
  class _LoginScreenState extends State<LoginScreen> {
    @override
@@ -14,9 +14,10 @@ import 'package:flutter/material.dart';
         child: Center(
             child: Column(
               children: [
+                const SizedBox(height: 120),
                Image.asset(
-                'images/tinder_logo.png',
-                width:200,
+                'images/logo.png',
+                width:150,
                )
               ],
             ),
