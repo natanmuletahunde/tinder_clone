@@ -11,6 +11,7 @@ import 'package:tinder/widgets/custom_text_field_widget.dart';
 
     TextEditingController emailTextEditingController = TextEditingController();
     TextEditingController passwordTextEditingController = TextEditingController();
+    bool showProgressBar = false;
    @override
    Widget build(BuildContext context) {
      return Scaffold(
@@ -115,7 +116,11 @@ import 'package:tinder/widgets/custom_text_field_widget.dart';
                   ),
                  )
              ],
-            )    
+            ) ,
+            showProgressBar == true ? const CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
+            )
+            :Container(),   
               ],
             ),
         ),
