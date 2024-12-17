@@ -72,7 +72,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 22,
+                height:20,
               ),
               const Text(
                 'to get started Now',
@@ -82,7 +82,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 22,
+                height: 20,
               ),
               //  upload the images
               GestureDetector(
@@ -94,11 +94,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
 
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
-
-              // Registration
-
+              // Registration  personal information
+              SizedBox(
+                  width: MediaQuery.of(context).size.width - 36,
+                  height: 55,
+                  child: CustomTextFieldWidget(
+                    editingController: nameTextEditingController,
+                    labelText: 'Name',
+                    iconData: Icons.person_outline,
+                    isObscure: false,
+                  ),
+                 ),
+               const SizedBox(height: 20,),
               SizedBox(
                 width: MediaQuery.of(context).size.width - 40,
                 height: 55,
@@ -110,6 +119,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
               const SizedBox(height: 20),
+
               SizedBox(
                 width: MediaQuery.of(context).size.width - 40,
                 height: 55,
@@ -119,10 +129,82 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   iconData: Icons.lock_outline,
                   isObscure: true,
                 ),
+              ),               
+               const SizedBox(height: 20,),
+              // age
+               
+              SizedBox(
+                width: MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: ageTextEditingController,
+                  labelText: 'Age',
+                  iconData: Icons.numbers,
+                  isObscure: false,
+                ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 20,),
+              // phoneNo
+          SizedBox(
+            width: MediaQuery.of(context).size.width -36,
+            height: 55,
+            child: CustomTextFieldWidget(
+              editingController: phoneNoTextEditingController,
+              labelText: 'Phone',
+              iconData: Icons.phone,
+              isObscure: false,
+            ),
+          ),
+      const SizedBox(height: 20,),
+              // city
+               SizedBox(
+                width: MediaQuery.of(context).size.width  -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: cityTextEditingController,
+                  labelText: 'City',
+                  iconData: Icons.location_city,
+                  isObscure: false,
+                ),
+               ),
+
+            const SizedBox(height: 20,),
+              //country
+               SizedBox(
+                width: MediaQuery.of(context).size.width -36,
+                 height: 55,
+                 child: CustomTextFieldWidget(
+                  editingController: countryTextEditingController,
+                  labelText: 'Country',
+                  iconData:Icons.location_city,
+                  isObscure: false,
+                 ),
+                 ),
+            const SizedBox(height: 20,),
+              //profileHeading 
+               SizedBox(
+               width: MediaQuery.of(context).size.width -36,
+               height: 55,
+               child:CustomTextFieldWidget(
+                editingController: profileHeadingTextEditingController,
+                labelText: 'Profile Heading',
+                iconData: Icons.text_fields,
+                isObscure: false,
+               ),
+               ),
+              const SizedBox(height: 20,),
+              //lookingforinapartner
+               SizedBox(
+                width: MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController:lookingForInapartnerTextEditingController,
+                  labelText: 'Looking for Inapartner',
+                  iconData: Icons.face,
+                  isObscure: false,
+                  
+                ),
+               )
             ],
           ),
         ),
