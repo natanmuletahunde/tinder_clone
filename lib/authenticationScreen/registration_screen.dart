@@ -97,6 +97,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 20,
               ),
               // Registration  personal information
+                 const Center(
+                  child: Text('Personal Info',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white
+                  ),),
+                ),
+             const SizedBox(height: 20,),
               SizedBox(
                   width: MediaQuery.of(context).size.width - 36,
                   height: 55,
@@ -204,7 +213,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                   
                 ),
-               )
+               ),
+               const SizedBox(height: 20,)
             ],
           ),
         ),

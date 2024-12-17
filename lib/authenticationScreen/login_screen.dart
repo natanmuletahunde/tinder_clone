@@ -107,7 +107,7 @@ import 'package:tinder/widgets/custom_text_field_widget.dart';
                  ),
                  InkWell(
                   onTap: () {
-                 Get.to(const RegistrationScreen());
+                 Get.to(RegistrationScreen());
                   },
                   child:  const Text(
                     'Create Now',
