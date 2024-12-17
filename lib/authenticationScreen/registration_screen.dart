@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tinder/widgets/custom_text_field_widget.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -22,7 +23,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       TextEditingController();
   TextEditingController lookingForInapartnerTextEditingController =
       TextEditingController();
-  TextEditingController professionTextEditingController = TextEditingController();
+  TextEditingController professionTextEditingController =
+      TextEditingController();
   // Appearance
   TextEditingController heightTextEditingController = TextEditingController();
   TextEditingController weightTextEditingController = TextEditingController();
@@ -55,6 +57,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController religionTextEditingController = TextEditingController();
   TextEditingController ethnicityTextEditingController =
       TextEditingController();
+      bool showProgressBar = false;
 
   @override
   Widget build(BuildContext context) {
@@ -250,7 +253,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 20,
               ),
               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: heightTextEditingController,
@@ -259,9 +262,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: bodyTypeTextEditingController,
@@ -270,10 +275,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               //weight
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: weightTextEditingController,
@@ -282,11 +289,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-                   
-                   //Life Style
+              const SizedBox(
+                height: 20,
+              ),
 
-               const Center(
+              //Life Style
+
+              const Center(
                 child: Text(
                   'Life Style',
                   style: TextStyle(
@@ -299,7 +308,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 20,
               ),
               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: drinkTextEditingController,
@@ -308,9 +317,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: smokeTextEditingController,
@@ -319,10 +330,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               //weight
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: martialStatusTextEditingController,
@@ -331,9 +344,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: haveChildrenTextEditingController,
@@ -342,20 +357,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: martialStatusTextEditingController,
-                  labelText: 'Marital Status',
+                  editingController: haveChildrenTextEditingController,
+                  labelText: 'Do You have Children ?',
                   iconData: CupertinoIcons.person_3_fill,
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: noOfChildrenTextEditingController,
@@ -364,20 +383,24 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController:professionTextEditingController,
+                  editingController: professionTextEditingController,
                   labelText: 'Profession',
                   iconData: Icons.business_center,
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: employmentStatusTextEditingController,
@@ -386,9 +409,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: incomeTextEditingController,
@@ -397,9 +422,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: livingSituationTextEditingController,
@@ -408,9 +435,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,),
-               SizedBox(
-                width:MediaQuery.of(context).size.width -36,
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: willingToRelocateTextEditingController,
@@ -419,19 +448,154 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               SizedBox(
-                width: MediaQuery.of(context).size.width -36,
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController:relationshipYouAreLookingForTextEditingController,
+                  editingController:
+                      relationshipYouAreLookingForTextEditingController,
                   labelText: 'Are YouLooking For Relationship?',
                   iconData: CupertinoIcons.person_2,
                   isObscure: false,
                 ),
               ),
-              const  SizedBox(height: 20,)
-                   
+              const SizedBox(
+                height: 20,
+              ),
+
+              // Background
+
+              const Center(
+                child: Text(
+                  'Background - Culture Value',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: nationalityTextEditingController,
+                  labelText: 'Nationality',
+                  iconData: Icons.flag_circle_outlined,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: educationTextEditingController,
+                  labelText: 'Education',
+                  iconData: Icons.history_edu_outlined,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              //weight
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: languageSpokenTextEditingController,
+                  labelText: 'Languages Spoken',
+                  iconData: CupertinoIcons.person_badge_plus,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: religionTextEditingController,
+                  labelText: 'Religions Spoken',
+                  iconData: CupertinoIcons.checkmark_seal_fill,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: ethnicityTextEditingController,
+                  labelText: 'Ethnicity',
+                  iconData: CupertinoIcons.eye,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+
+              Container(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(12))),
+                child: InkWell(
+                  onTap: () {},
+                  child: const Center(
+                    child: Text(
+                      'Create Account',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Already  have an account? ",
+                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const Text(
+                      'Login Here',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+                  )
+                ],
+              ),
+              showProgressBar == true
+                  ? const CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.pink),
+                    )
+                  : Container(),
+
+              const SizedBox(height: 20,),
             ],
           ),
         ),
