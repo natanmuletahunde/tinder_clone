@@ -22,6 +22,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       TextEditingController();
   TextEditingController lookingForInapartnerTextEditingController =
       TextEditingController();
+  TextEditingController professionTextEditingController = TextEditingController();
   // Appearance
   TextEditingController heightTextEditingController = TextEditingController();
   TextEditingController weightTextEditingController = TextEditingController();
@@ -335,8 +336,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width:MediaQuery.of(context).size.width -36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: martialStatusTextEditingController,
-                  labelText: 'Marital Status',
+                  editingController: haveChildrenTextEditingController,
+                  labelText: 'Do you have Have children?',
                   iconData: CupertinoIcons.person_2,
                   isObscure: false,
                 ),
@@ -348,7 +349,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: CustomTextFieldWidget(
                   editingController: martialStatusTextEditingController,
                   labelText: 'Marital Status',
-                  iconData: CupertinoIcons.person_2,
+                  iconData: CupertinoIcons.person_3_fill,
                   isObscure: false,
                 ),
               ),
@@ -357,9 +358,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width:MediaQuery.of(context).size.width -36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: martialStatusTextEditingController,
-                  labelText: 'Marital Status',
-                  iconData: CupertinoIcons.person_2,
+                  editingController: noOfChildrenTextEditingController,
+                  labelText: 'No of children',
+                  iconData: CupertinoIcons.person_3_fill,
                   isObscure: false,
                 ),
               ),
@@ -368,9 +369,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width:MediaQuery.of(context).size.width -36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: martialStatusTextEditingController,
-                  labelText: 'Marital Status',
-                  iconData: CupertinoIcons.person_2,
+                  editingController:professionTextEditingController,
+                  labelText: 'Profession',
+                  iconData: Icons.business_center,
                   isObscure: false,
                 ),
               ),
@@ -379,9 +380,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width:MediaQuery.of(context).size.width -36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: martialStatusTextEditingController,
-                  labelText: 'Marital Status',
-                  iconData: CupertinoIcons.person_2,
+                  editingController: employmentStatusTextEditingController,
+                  labelText: 'Employment Status',
+                  iconData: CupertinoIcons.rectangle_stack_person_crop_fill,
                   isObscure: false,
                 ),
               ),
@@ -390,9 +391,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width:MediaQuery.of(context).size.width -36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: martialStatusTextEditingController,
-                  labelText: 'Marital Status',
-                  iconData: CupertinoIcons.person_2,
+                  editingController: incomeTextEditingController,
+                  labelText: ' Income',
+                  iconData: CupertinoIcons.money_dollar_circle,
                   isObscure: false,
                 ),
               ),
@@ -401,9 +402,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width:MediaQuery.of(context).size.width -36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: martialStatusTextEditingController,
-                  labelText: 'Marital Status',
-                  iconData: CupertinoIcons.person_2,
+                  editingController: livingSituationTextEditingController,
+                  labelText: 'Living Situation ',
+                  iconData: CupertinoIcons.person_2_square_stack,
                   isObscure: false,
                 ),
               ),
@@ -412,8 +413,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 width:MediaQuery.of(context).size.width -36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController: martialStatusTextEditingController,
-                  labelText: 'Marital Status',
+                  editingController: willingToRelocateTextEditingController,
+                  labelText: 'Are You willing To Relocate',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController:relationshipYouAreLookingForTextEditingController,
+                  labelText: 'Are YouLooking For Relationship?',
                   iconData: CupertinoIcons.person_2,
                   isObscure: false,
                 ),
