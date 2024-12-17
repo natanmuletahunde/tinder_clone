@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tinder/widgets/custom_text_field_widget.dart';
 
@@ -72,7 +73,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height:20,
+                height: 20,
               ),
               const Text(
                 'to get started Now',
@@ -97,26 +98,31 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 20,
               ),
               // Registration  personal information
-                 const Center(
-                  child: Text('Personal Info',
+              const Center(
+                child: Text(
+                  'Personal Info',
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.white
-                  ),),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white),
                 ),
-             const SizedBox(height: 20,),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               SizedBox(
-                  width: MediaQuery.of(context).size.width - 36,
-                  height: 55,
-                  child: CustomTextFieldWidget(
-                    editingController: nameTextEditingController,
-                    labelText: 'Name',
-                    iconData: Icons.person_outline,
-                    isObscure: false,
-                  ),
-                 ),
-               const SizedBox(height: 20,),
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: nameTextEditingController,
+                  labelText: 'Name',
+                  iconData: Icons.person_outline,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               SizedBox(
                 width: MediaQuery.of(context).size.width - 40,
                 height: 55,
@@ -138,12 +144,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   iconData: Icons.lock_outline,
                   isObscure: true,
                 ),
-              ),               
-               const SizedBox(height: 20,),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               // age
-               
+
               SizedBox(
-                width: MediaQuery.of(context).size.width -36,
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: ageTextEditingController,
@@ -152,22 +160,26 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               // phoneNo
-          SizedBox(
-            width: MediaQuery.of(context).size.width -36,
-            height: 55,
-            child: CustomTextFieldWidget(
-              editingController: phoneNoTextEditingController,
-              labelText: 'Phone',
-              iconData: Icons.phone,
-              isObscure: false,
-            ),
-          ),
-      const SizedBox(height: 20,),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: phoneNoTextEditingController,
+                  labelText: 'Phone',
+                  iconData: Icons.phone,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               // city
-               SizedBox(
-                width: MediaQuery.of(context).size.width  -36,
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
                   editingController: cityTextEditingController,
@@ -175,46 +187,239 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   iconData: Icons.location_city,
                   isObscure: false,
                 ),
-               ),
+              ),
 
-            const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               //country
-               SizedBox(
-                width: MediaQuery.of(context).size.width -36,
-                 height: 55,
-                 child: CustomTextFieldWidget(
-                  editingController: countryTextEditingController,
-                  labelText: 'Country',
-                  iconData:Icons.location_city,
-                  isObscure: false,
-                 ),
-                 ),
-            const SizedBox(height: 20,),
-              //profileHeading 
-               SizedBox(
-               width: MediaQuery.of(context).size.width -36,
-               height: 55,
-               child:CustomTextFieldWidget(
-                editingController: profileHeadingTextEditingController,
-                labelText: 'Profile Heading',
-                iconData: Icons.text_fields,
-                isObscure: false,
-               ),
-               ),
-              const SizedBox(height: 20,),
-              //lookingforinapartner
-               SizedBox(
-                width: MediaQuery.of(context).size.width -36,
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
                 height: 55,
                 child: CustomTextFieldWidget(
-                  editingController:lookingForInapartnerTextEditingController,
+                  editingController: countryTextEditingController,
+                  labelText: 'Country',
+                  iconData: Icons.location_city,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              //profileHeading
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: profileHeadingTextEditingController,
+                  labelText: 'Profile Heading',
+                  iconData: Icons.text_fields,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              //lookingforinapartner
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: lookingForInapartnerTextEditingController,
                   labelText: 'Looking for Inapartner',
                   iconData: Icons.face,
                   isObscure: false,
-                  
                 ),
-               ),
-               const SizedBox(height: 20,)
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+
+              // appearance
+              const Center(
+                child: Text(
+                  'Appearance',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: heightTextEditingController,
+                  labelText: 'Height',
+                  iconData: Icons.insert_chart,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: bodyTypeTextEditingController,
+                  labelText: 'Body type',
+                  iconData: Icons.insert_chart,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+              //weight
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: weightTextEditingController,
+                  labelText: 'weight',
+                  iconData: Icons.table_chart,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+                   
+                   //Life Style
+
+               const Center(
+                child: Text(
+                  'Life Style',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: drinkTextEditingController,
+                  labelText: 'Drink',
+                  iconData: Icons.local_drink_outlined,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: smokeTextEditingController,
+                  labelText: 'Smoke',
+                  iconData: Icons.smoking_rooms_outlined,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+              //weight
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,),
+               SizedBox(
+                width:MediaQuery.of(context).size.width -36,
+                height: 55,
+                child: CustomTextFieldWidget(
+                  editingController: martialStatusTextEditingController,
+                  labelText: 'Marital Status',
+                  iconData: CupertinoIcons.person_2,
+                  isObscure: false,
+                ),
+              ),
+              const  SizedBox(height: 20,)
+                   
             ],
           ),
         ),
