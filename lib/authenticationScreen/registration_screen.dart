@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -94,28 +92,34 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               const SizedBox(
                 height: 20,
               ),
-              authenticationController.imageFile==null?
-              const CircleAvatar(
-                radius: 80,
-                backgroundImage: AssetImage('images/profile_avatar.jpg'),
-                backgroundColor: Colors.black,
-              ):Container(
-                width: 180,
-                height: 180,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey,
-                  image: DecorationImage(image:FileImage(authenticationController.imageFile!.path),
-                  fit: BoxFit.fitHeight  
-                  )
-                ),
-              ),
+   authenticationController.profileImage == null
+    ? const CircleAvatar(
+        radius: 80,
+        backgroundImage: AssetImage('images/profile_avatar.jpg'),
+        backgroundColor: Colors.black,
+      )
+    : Container(
+        width: 180,
+        height: 180,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.grey,
+          image: DecorationImage(
+            image: FileImage(authenticationController.profileImage!), // Pass the File object here
+            fit: BoxFit.cover, // Adjust fit to cover the container
+          ),
+        ),
+      ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
                     onPressed: () async {
                      await authenticationController.pickImageFileFromGallery();
+                     setState(() {
+                       authenticationController.imageFile;
+                     });
                     },
                     icon: const Icon(
                       Icons.image_outlined,
@@ -129,6 +133,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   IconButton(
                     onPressed: () async{
                    await  authenticationController.captureImageFromPhoneCamera();
+                   setState(() {
+                     authenticationController.imageFile;
+                   });
                     },
                     icon: const Icon(
                       Icons.camera_alt_outlined,
