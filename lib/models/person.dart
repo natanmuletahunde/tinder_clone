@@ -4,6 +4,8 @@ class Person {
   // Personal Information
   String? imageProfile;
   String? name;
+  String? email;
+  String?password;
   String? age;
   String? phoneNo;
   String? city;
@@ -40,9 +42,11 @@ class Person {
   Person({
     this.imageProfile,
     this.name,
+    this.email,
+    this.password,
     this.age,
     this.phoneNo,
-    this.city,
+    this.city,  
     this.country,
     this.profileHeading,
     this.lookingForInAPartner,
@@ -76,6 +80,8 @@ class Person {
       // Personal Information
       imageProfile: dataSnapshot['imageProfile'],
       name: dataSnapshot['name'],
+      email: dataSnapshot['email'],
+      password: dataSnapshot['password'],
       age: dataSnapshot['age'],
       phoneNo: dataSnapshot['phoneNo'],
       city: dataSnapshot['city'],
@@ -114,6 +120,8 @@ class Person {
   // Personal Information
   "imageProfile": imageProfile,
   "name": name,
+  "email": email,
+  "password": password,
   "age": age,
   "phoneNo": phoneNo,
   "city": city,

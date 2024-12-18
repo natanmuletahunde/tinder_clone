@@ -1,4 +1,6 @@
 import 'dart:io';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -42,9 +44,15 @@ class AuthenticationController extends GetxController {
     }
   }
 
+
+uploadImageToStorage() async{
+   
+}
   createNewUserAccount(
     String imageProfile,
     String name,
+    String email,
+    String password,
     String age,
     String phoneNo,
     String city,
@@ -71,10 +79,14 @@ class AuthenticationController extends GetxController {
     String religion,
     String ethnicity,
     int publishedDateTime,
-  ) 
+  )  async
   {
     try{
-
+          UserCredential credential  = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: email,
+            password: password
+          );
+          // await uploadImageToStorage();
     } 
     catch(errorMsg){
      Get.snackbar('Account Creation Unsuccessful', 'Error occured: $errorMsg');
