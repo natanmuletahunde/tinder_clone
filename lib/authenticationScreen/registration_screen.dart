@@ -58,8 +58,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController religionTextEditingController = TextEditingController();
   TextEditingController ethnicityTextEditingController =
       TextEditingController();
-      bool showProgressBar = false;
-
+  bool showProgressBar = false;
 
   var authenticationController = AuthenticationController.authController;
 
@@ -94,15 +93,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 20,
               ),
               //  upload the images
-               
-               const CircleAvatar(
-                  radius: 80,
-                  backgroundImage: AssetImage('images/profile_avatar.jpg'),
 
-                  backgroundColor: Colors.black,
-                ),
+              const CircleAvatar(
+                radius: 80,
+                backgroundImage: AssetImage('images/profile_avatar.jpg'),
+                backgroundColor: Colors.black,
+              ),
               Row(
-                
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.image_outlined,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const SizedBox(height: 10,),
+                  IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.camera_alt_outlined,
+                      color: Colors.grey
+                      ))
+                ],
               ),
 
               const SizedBox(
@@ -602,7 +614,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     )
                   : Container(),
 
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
