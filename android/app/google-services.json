@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "498154989418",
+    "project_id": "tinderdating-399bd",
+    "storage_bucket": "tinderdating-399bd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498154989418:android:7aeb8724f457b49f2ce713",
+        "android_client_info": {
+          "package_name": "com.example.tinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEd1m5L2QbqGZa5G_ociJ120JHvALVfp4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
