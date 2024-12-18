@@ -18,7 +18,7 @@ class AuthenticationController {
     }
   }
     captureImageFromPhoneCamera() async {
-    final XFile? imageFile = await ImagePicker().pickImage(source: ImageSource.gallery); // Corrected XFile type
+    final XFile? imageFile = await ImagePicker().pickImage(source: ImageSource.camera); // Corrected XFile type
     if (imageFile != null) { 
       Get.snackbar('Profile Image', 'You have successfully captured  your profile image using camera .');
       pickedFile.value = File(imageFile.path); 

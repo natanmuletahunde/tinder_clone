@@ -94,12 +94,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 20,
               ),
               //  upload the images
-              GestureDetector(
-                onTap: () {},
-                child: const CircleAvatar(
+               
+               const CircleAvatar(
                   radius: 80,
                   backgroundImage: AssetImage('images/profile_avatar.jpg'),
+
+                  backgroundColor: Colors.black,
                 ),
+              Row(
+                
               ),
 
               const SizedBox(
