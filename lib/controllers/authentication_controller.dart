@@ -10,9 +10,9 @@ class AuthenticationController {
 
   pickImageFileFromGallery() async {
     final XFile? imageFile = await ImagePicker().pickImage(source: ImageSource.gallery); // Corrected XFile type
-    if (imageFile != null) { // Fixed the improper spacing in the `!=` operator
+    if (imageFile != null) { 
       Get.snackbar('Profile Image', 'You have successfully picked your profile image.');
-      pickedFile.value = File(imageFile.path); // Fixed assignment of Rx variable
+      pickedFile.value = File(imageFile.path); 
     }
   }
 }
