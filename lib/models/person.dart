@@ -17,7 +17,7 @@ class Person {
   // Appearance
   String? height;
   String? bodyType;
-  String? width;
+  String? weight;
 
   // Lifestyle
   String? drink;
@@ -53,7 +53,7 @@ class Person {
     this.publishedDateTime,
     this.height,
     this.bodyType,
-    this.width,
+    this.weight,
     this.drink,
     this.smoke,
     this.maritalStatus,
@@ -93,7 +93,7 @@ class Person {
       // Appearance
       height: dataSnapshot['height'],
       bodyType: dataSnapshot['bodyType'],
-      width: dataSnapshot['width'],
+      weight: dataSnapshot['weight'],
 
       // Lifestyle
       drink: dataSnapshot['drink'],
@@ -133,7 +133,7 @@ class Person {
   // Appearance
   "height": height,
   "bodyType": bodyType,
-  "width": width,
+  "weight": weight,
 
   // Lifestyle
   "drink": drink,

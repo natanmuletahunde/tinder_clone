@@ -74,7 +74,7 @@ class AuthenticationController extends GetxController {
     String lookingForInAPartner,
     String height,
     String bodyType,
-    String width,
+    String weight,
     String drink,
     String smoke,
     String maritalStatus,
@@ -114,7 +114,7 @@ class AuthenticationController extends GetxController {
         // Appearance
         height: height,
         bodyType: bodyType,
-        width: width,
+        weight: weight,
 
         // Lifestyle
         drink: drink,

@@ -92,34 +92,36 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               const SizedBox(
                 height: 20,
               ),
-   authenticationController.profileImage == null
-    ? const CircleAvatar(
-        radius: 80,
-        backgroundImage: AssetImage('images/profile_avatar.jpg'),
-        backgroundColor: Colors.black,
-      )
-    : Container(
-        width: 180,
-        height: 180,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.grey,
-          image: DecorationImage(
-            image: FileImage(authenticationController.profileImage!), // Pass the File object here
-            fit: BoxFit.cover, // Adjust fit to cover the container
-          ),
-        ),
-      ),
+              authenticationController.profileImage == null
+                  ? const CircleAvatar(
+                      radius: 80,
+                      backgroundImage: AssetImage('images/profile_avatar.jpg'),
+                      backgroundColor: Colors.black,
+                    )
+                  : Container(
+                      width: 180,
+                      height: 180,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey,
+                        image: DecorationImage(
+                          image: FileImage(authenticationController
+                              .profileImage!), // Pass the File object here
+                          fit:
+                              BoxFit.cover, // Adjust fit to cover the container
+                        ),
+                      ),
+                    ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
                     onPressed: () async {
-                     await authenticationController.pickImageFileFromGallery();
-                     setState(() {
-                       authenticationController.imageFile;
-                     });
+                      await authenticationController.pickImageFileFromGallery();
+                      setState(() {
+                        authenticationController.imageFile;
+                      });
                     },
                     icon: const Icon(
                       Icons.image_outlined,
@@ -131,11 +133,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     height: 10,
                   ),
                   IconButton(
-                    onPressed: () async{
-                   await  authenticationController.captureImageFromPhoneCamera();
-                   setState(() {
-                     authenticationController.imageFile;
-                   });
+                    onPressed: () async {
+                      await authenticationController
+                          .captureImageFromPhoneCamera();
+                      setState(() {
+                        authenticationController.imageFile;
+                      });
                     },
                     icon: const Icon(
                       Icons.camera_alt_outlined,
@@ -603,17 +606,65 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     borderRadius: BorderRadius.all(Radius.circular(12))),
                 child: InkWell(
                   onTap: () {
-                    if(authenticationController.profileImage!= null)
-                    {
-                        if(nameTextEditingController.text.trim().isEmpty()){
-
-                        }
-                        else {
-                          Get.snackbar('A Field is Empty', 'Please fill out all field in text fields');
-                        }
-                    }  
-                    else {
-                      Get.snackbar('Image File Missing ', 'Please Pick from Gallery or capture with camera');
+                    if (authenticationController.profileImage != null) {
+                      if (nameTextEditingController.text.trim().isEmpty &&
+                          emailTextEditingController.text.trim().isEmpty &&
+                          passwordTextEditingController.text.trim().isEmpty &&
+                          ageTextEditingController.text.trim().isEmpty &&
+                          phoneNoTextEditingController.text.trim().isEmpty &&
+                          cityTextEditingController.text.trim().isEmpty &&
+                          countryTextEditingController.text.trim().isEmpty &&
+                          profileHeadingTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          lookingForInapartnerTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          heightTextEditingController.text.trim().isEmpty &&
+                          bodyTypeTextEditingController.text.trim().isEmpty &&
+                          weightTextEditingController.text.trim().isEmpty &&
+                          drinkTextEditingController.text.trim().isEmpty &&
+                          smokeTextEditingController.text.trim().isEmpty &&
+                          martialStatusTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          haveChildrenTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          noOfChildrenTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          professionTextEditingController.text.trim().isEmpty &&
+                          employmentStatusTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          incomeTextEditingController.text.trim().isEmpty &&
+                          livingSituationTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          willingToRelocateTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          relationshipYouAreLookingForTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          nationalityTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          educationTextEditingController.text.trim().isEmpty &&
+                          languageSpokenTextEditingController.text
+                              .trim()
+                              .isEmpty &&
+                          religionTextEditingController.text.trim().isEmpty &&
+                          ethnicityTextEditingController.text.trim().isEmpty) {
+                        Get.snackbar('Error', 'Please fill in all the fields.');
+                      } else {
+                        Get.snackbar('A Field is Empty',
+                            'Please fill out all field in text fields');
+                      }
+                    } else {
+                      Get.snackbar('Image File Missing ',
+                          'Please Pick from Gallery or capture with camera');
                     }
                   },
                   child: const Center(
