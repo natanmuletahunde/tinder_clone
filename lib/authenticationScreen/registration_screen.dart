@@ -100,20 +100,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 backgroundColor: Colors.black,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                    authenticationController.pickImageFileFromGallery();  
+                    },
                     icon: const Icon(
                       Icons.image_outlined,
                       color: Colors.grey,
+                      size: 30,
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        authenticationController.pickImageFileFromCamera();
+                      },
                       icon: const Icon(Icons.camera_alt_outlined,
-                      color: Colors.grey
-                      ))
+                          color: Colors.grey,
+                          size: 30,))
                 ],
               ),
 
