@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class AuthenticationController extends GetxController {
   static AuthenticationController get instance => Get.find();
@@ -45,8 +46,8 @@ class AuthenticationController extends GetxController {
   }
 
 
-uploadImageToStorage() async{
-   
+  Future<String>  uploadImageToStorage() async{
+       Reference referenceStorage = FirebaseStroage.instance.ref().child('Profile');
 }
   createNewUserAccount(
     String imageProfile,
