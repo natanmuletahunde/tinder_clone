@@ -656,9 +656,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               .trim()
                               .isEmpty &&
                           religionTextEditingController.text.trim().isEmpty &&
-                          ethnicityTextEditingController.text.trim().isEmpty) {
-                        Get.snackbar('Error', 'Please fill in all the fields.');
-                      } else {
+                          ethnicityTextEditingController.text.trim().isEmpty)
+                          {
+                           //
+                          } 
+                      else {
                         Get.snackbar('A Field is Empty',
                             'Please fill out all field in text fields');
                       }
