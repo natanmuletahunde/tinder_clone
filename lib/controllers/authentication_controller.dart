@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class AuthenticationController extends GetxController {
   static AuthenticationController get instance => Get.find();
@@ -45,12 +45,20 @@ class AuthenticationController extends GetxController {
     }
   }
 
+  Future<String> uploadImageToStorage(File imageProfile) async { // Accepting imageProfile as a parameter
+    Reference referenceStorage = FirebaseStorage.instance
+        .ref()
+        .child('Profile Images')
+        .child(FirebaseAuth.instance.currentUser!.uid);
+    UploadTask task = referenceStorage.putFile(imageProfile);  // Using imageProfile here
+    TaskSnapshot snapshot = await task;
 
-  Future<String>  uploadImageToStorage() async{
-       Reference referenceStorage = FirebaseStroage.instance.ref().child('Profile');
-}
+    String downloadUrlOfImage = await snapshot.ref.getDownloadURL();
+    return downloadUrlOfImage;
+  }
+
   createNewUserAccount(
-    String imageProfile,
+    File imageProfile,
     String name,
     String email,
     String password,
@@ -80,18 +88,13 @@ class AuthenticationController extends GetxController {
     String religion,
     String ethnicity,
     int publishedDateTime,
-  )  async
-  {
-    try{
-          UserCredential credential  = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: email,
-            password: password
-          );
-          // await uploadImageToStorage();
-    } 
-    catch(errorMsg){
-     Get.snackbar('Account Creation Unsuccessful', 'Error occured: $errorMsg');
+  ) async {
+    try {
+      UserCredential credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      String UrlOfDownloadedImage = await uploadImageToStorage(imageProfile);  // Now passing imageProfile correctly
+    } catch (errorMsg) {
+      Get.snackbar('Account Creation Unsuccessful', 'Error occured: $errorMsg');
     }
-
-  } 
+  }  
 }
