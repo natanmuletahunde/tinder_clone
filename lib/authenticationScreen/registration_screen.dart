@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tinder/controllers/authentication_controller.dart';
 import 'package:tinder/widgets/custom_text_field_widget.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -58,6 +59,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController ethnicityTextEditingController =
       TextEditingController();
       bool showProgressBar = false;
+
+
+  var authenticationController = AuthenticationController.authController;
 
   @override
   Widget build(BuildContext context) {
