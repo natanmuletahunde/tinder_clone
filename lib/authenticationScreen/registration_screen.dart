@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,7 +62,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       TextEditingController();
   bool showProgressBar = false;
 
-  final AuthenticationController authenticationController = AuthenticationController.instance;
+  final AuthenticationController authenticationController =
+      AuthenticationController.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,46 +94,55 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               const SizedBox(
                 height: 20,
               ),
-              //  upload the images
-
+              authenticationController.imageFile==null?
               const CircleAvatar(
                 radius: 80,
                 backgroundImage: AssetImage('images/profile_avatar.jpg'),
                 backgroundColor: Colors.black,
+              ):Container(
+                width: 180,
+                height: 180,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.grey,
+                  image: DecorationImage(image:FileImage(authenticationController.imageFile!.path),
+                  fit: BoxFit.fitHeight  
+                  )
+                ),
               ),
               Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        IconButton(
-          onPressed: () {
-            authenticationController.pickImageFileFromGallery();
-          },
-          icon: const Icon(
-            Icons.image_outlined,
-            color: Colors.grey,
-            size: 30,
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        IconButton(
-          onPressed: () {
-            authenticationController.captureImageFromPhoneCamera();
-          },
-          icon: const Icon(
-            Icons.camera_alt_outlined,
-            color: Colors.grey,
-            size: 30,
-          ),
-        ),
-      ],
-    ),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () async {
+                     await authenticationController.pickImageFileFromGallery();
+                    },
+                    icon: const Icon(
+                      Icons.image_outlined,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  IconButton(
+                    onPressed: () async{
+                   await  authenticationController.captureImageFromPhoneCamera();
+                    },
+                    icon: const Icon(
+                      Icons.camera_alt_outlined,
+                      color: Colors.grey,
+                      size: 30,
+                    ),
+                  ),
+                ],
+              ),
 
               const SizedBox(
                 height: 20,
               ),
-              // Registration  personal information
+
               const Center(
                 child: Text(
                   'Personal Info',

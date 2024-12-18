@@ -11,9 +11,11 @@ class AuthenticationController extends GetxController {
 
   File? get profileImage => pickedFile.value;
 
+  get imageFile => null;
+
   pickImageFileFromGallery() async {
     try {
-      final XFile? imageFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+       XFile? imageFile = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (imageFile != null) {
         pickedFile.value = File(imageFile.path);
         Get.snackbar('Profile Image', 'You have successfully picked your profile image.');
@@ -26,7 +28,7 @@ class AuthenticationController extends GetxController {
   // Method to capture an image from the camera
   captureImageFromPhoneCamera() async {
     try {
-      final XFile? imageFile = await ImagePicker().pickImage(source: ImageSource.camera);
+       XFile? imageFile = await ImagePicker().pickImage(source: ImageSource.camera);
       if (imageFile != null) {
         pickedFile.value = File(imageFile.path);
         Get.snackbar('Profile Image', 'You have successfully captured your profile image using the camera.');
