@@ -60,8 +60,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       TextEditingController();
   bool showProgressBar = false;
 
-  var authenticationController = AuthenticationController.authController;
-
+  final AuthenticationController authenticationController = AuthenticationController.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,30 +99,33 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 backgroundColor: Colors.black,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                    authenticationController.pickImageFileFromGallery();  
-                    },
-                    icon: const Icon(
-                      Icons.image_outlined,
-                      color: Colors.grey,
-                      size: 30,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        authenticationController.pickImageFileFromCamera();
-                      },
-                      icon: const Icon(Icons.camera_alt_outlined,
-                          color: Colors.grey,
-                          size: 30,))
-                ],
-              ),
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        IconButton(
+          onPressed: () {
+            authenticationController.pickImageFileFromGallery();
+          },
+          icon: const Icon(
+            Icons.image_outlined,
+            color: Colors.grey,
+            size: 30,
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        IconButton(
+          onPressed: () {
+            authenticationController.captureImageFromPhoneCamera();
+          },
+          icon: const Icon(
+            Icons.camera_alt_outlined,
+            color: Colors.grey,
+            size: 30,
+          ),
+        ),
+      ],
+    ),
 
               const SizedBox(
                 height: 20,
