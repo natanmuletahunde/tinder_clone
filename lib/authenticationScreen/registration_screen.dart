@@ -602,7 +602,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(12))),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    if(authenticationController.profileImage!= null)
+                    {
+                        if(nameTextEditingController.text.trim().isEmpty()){
+
+                        }
+                        else {
+                          Get.snackbar('A Field is Empty', 'Please fill out all field in text fields');
+                        }
+                    }  
+                    else {
+                      Get.snackbar('Image File Missing ', 'Please Pick from Gallery or capture with camera');
+                    }
+                  },
                   child: const Center(
                     child: Text(
                       'Create Account',
