@@ -110,4 +110,42 @@ class Person {
       ethnicity: dataSnapshot['ethnicity'],
     );
   }
+ Map<String, dynamic> toJson() => {
+  // Personal Information
+  "imageProfile": imageProfile,
+  "name": name,
+  "age": age,
+  "phoneNo": phoneNo,
+  "city": city,
+  "country": country,
+  "profileHeading": profileHeading,
+  "lookingForInAPartner": lookingForInAPartner,
+  "publishedDateTime": publishedDateTime,
+
+  // Appearance
+  "height": height,
+  "bodyType": bodyType,
+  "width": width,
+
+  // Lifestyle
+  "drink": drink,
+  "smoke": smoke,
+  "maritalStatus": maritalStatus,
+  "haveChildren": haveChildren,
+  "noOfChildren": noOfChildren,
+  "profession": profession,
+  "employmentStatus": employmentStatus,
+  "income": income,
+  "livingSituation": livingSituation,
+  "willingToRelocate": willingToRelocate,
+  "relationshipYouAreLookingFor": relationshipYouAreLookingFor,
+
+  // Background - Cultural Values
+  "nationality": nationality,
+  "education": education,
+  "languageSpoken": languageSpoken,
+  "religion": religion,
+  "ethnicity": ethnicity,
+};
+
 }
