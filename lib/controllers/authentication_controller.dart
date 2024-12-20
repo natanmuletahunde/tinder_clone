@@ -14,13 +14,12 @@ class AuthenticationController extends GetxController {
   Rx<File?> pickedFile = Rx<File?>(null);
 
   File? get profileImage => pickedFile.value;
-
-  get imageFile => null;
+ late XFile imageFile;
 
   pickImageFileFromGallery() async {
     try {
-      XFile? imageFile =
-          await ImagePicker().pickImage(source: ImageSource.gallery);
+    imageFile =
+          (await ImagePicker().pickImage(source: ImageSource.gallery))!;
       if (imageFile != null) {
         pickedFile.value = File(imageFile.path);
         Get.snackbar('Profile Image',
@@ -35,8 +34,8 @@ class AuthenticationController extends GetxController {
 
   captureImageFromPhoneCamera() async {
     try {
-      XFile? imageFile =
-          await ImagePicker().pickImage(source: ImageSource.camera);
+       imageFile =
+          (await ImagePicker().pickImage(source: ImageSource.camera))!;
       if (imageFile != null) {
         pickedFile.value = File(imageFile.path);
         Get.snackbar('Profile Image',
