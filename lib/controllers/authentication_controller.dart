@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tinder/homeScreen/home_screen.dart';
 import 'package:tinder/models/person.dart' as personModel;
 
 class AuthenticationController extends GetxController {
@@ -14,12 +15,13 @@ class AuthenticationController extends GetxController {
   Rx<File?> pickedFile = Rx<File?>(null);
 
   File? get profileImage => pickedFile.value;
- late XFile imageFile;
+
+  get imageFile => null;
 
   pickImageFileFromGallery() async {
     try {
-    imageFile =
-          (await ImagePicker().pickImage(source: ImageSource.gallery))!;
+      XFile? imageFile =
+          await ImagePicker().pickImage(source: ImageSource.gallery);
       if (imageFile != null) {
         pickedFile.value = File(imageFile.path);
         Get.snackbar('Profile Image',
@@ -34,8 +36,8 @@ class AuthenticationController extends GetxController {
 
   captureImageFromPhoneCamera() async {
     try {
-       imageFile =
-          (await ImagePicker().pickImage(source: ImageSource.camera))!;
+      XFile? imageFile =
+          await ImagePicker().pickImage(source: ImageSource.camera);
       if (imageFile != null) {
         pickedFile.value = File(imageFile.path);
         Get.snackbar('Profile Image',
@@ -90,7 +92,7 @@ class AuthenticationController extends GetxController {
     String languageSpoken,
     String religion,
     String ethnicity,
-    int publishedDateTime,
+    // int publishedDateTime,
   ) async {
     try {
       UserCredential credential = await FirebaseAuth.instance
@@ -108,7 +110,7 @@ class AuthenticationController extends GetxController {
         country: country,
         profileHeading: profileHeading,
         lookingForInAPartner: lookingForInAPartner,
-        publishedDateTime: publishedDateTime,
+        // publishedDateTime: publishedDateTime,
 
         // Appearance
         height: height,
@@ -140,6 +142,7 @@ class AuthenticationController extends GetxController {
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .set(personInstance.toJson());
          Get.snackbar('Account created ','Congratulations');
+         Get.to(const HomeScreen());
 
     } catch (errorMsg) {
       Get.snackbar('Account Creation Unsuccessful', 'Error occured: $errorMsg');

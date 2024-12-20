@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tinder/controllers/authentication_controller.dart';
-import 'package:tinder/homeScreen/home_screen.dart';
 import 'package:tinder/widgets/custom_text_field_widget.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -609,7 +608,8 @@ Container(
   ),
   child: InkWell(
     onTap: ()   async {
-      if (authenticationController.profileImage != null) {
+      if (authenticationController.profileImage != null) 
+      {
         if (nameTextEditingController.text.trim().isNotEmpty &&
             emailTextEditingController.text.trim().isNotEmpty &&
             passwordTextEditingController.text.trim().isNotEmpty &&
@@ -670,8 +670,7 @@ Container(
             educationTextEditingController.text.trim(), // 26th
             languageSpokenTextEditingController.text.trim(), // 27th
             religionTextEditingController.text.trim(), // 28th
-            ethnicityTextEditingController.text.trim(), // 29th
-       publishedDateTime.text.trim() as int, // 30th (Replace with the actual missing argument)** 
+            ethnicityTextEditingController.text.trim() // 29th
           );
              setState(() {
                showProgressBar = false;
@@ -685,8 +684,6 @@ Container(
             'A Field is Empty',
             'Please fill out all fields in text fields',
           );
-
-          Get.to(HomeScreen());
         }
       } else {
         Get.snackbar(
