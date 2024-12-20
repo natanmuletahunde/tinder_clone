@@ -59,7 +59,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController religionTextEditingController = TextEditingController();
   TextEditingController ethnicityTextEditingController =
       TextEditingController();
-  TextEditingController missingArgumentTextEditingController = TextEditingController();
+  TextEditingController   publishedDateTime = TextEditingController();
   bool showProgressBar = false;
 
   final AuthenticationController authenticationController =
@@ -400,16 +400,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width - 36,
-                height: 55,
-                child: CustomTextFieldWidget(
-                  editingController: haveChildrenTextEditingController,
-                  labelText: 'Do you have Have children?',
-                  iconData: CupertinoIcons.person_2,
-                  isObscure: false,
-                ),
-              ),
+              // SizedBox(
+              //   width: MediaQuery.of(context).size.width - 36,
+              //   height: 55,
+              //   child: CustomTextFieldWidget(
+              //     editingController: haveChildrenTextEditingController,
+              //     labelText: 'Do you have Have children?',
+              //     iconData: CupertinoIcons.person_2,
+              //     isObscure: false,
+              //   ),
+              // ),
               const SizedBox(
                 height: 20,
               ),
@@ -638,6 +638,9 @@ Container(
             languageSpokenTextEditingController.text.trim().isNotEmpty &&
             religionTextEditingController.text.trim().isNotEmpty &&
             ethnicityTextEditingController.text.trim().isNotEmpty) {
+              setState(() {
+                showProgressBar= true;
+              });
             await   authenticationController.createNewUserAccount(
             authenticationController.profileImage!, // 1st argument
             nameTextEditingController.text.trim(), // 2nd
@@ -668,7 +671,7 @@ Container(
             languageSpokenTextEditingController.text.trim(), // 27th
             religionTextEditingController.text.trim(), // 28th
             ethnicityTextEditingController.text.trim(), // 29th
-            missingArgumentTextEditingController.text.trim() as int // 30th (Replace with the actual missing argument)** 
+       publishedDateTime.text.trim() as int, // 30th (Replace with the actual missing argument)** 
           );
              setState(() {
                showProgressBar = false;
