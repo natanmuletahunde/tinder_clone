@@ -58,6 +58,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController religionTextEditingController = TextEditingController();
   TextEditingController ethnicityTextEditingController =
       TextEditingController();
+  TextEditingController missingArgumentTextEditingController = TextEditingController();
   bool showProgressBar = false;
 
   final AuthenticationController authenticationController =
@@ -594,92 +595,107 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   isObscure: false,
                 ),
               ),
-              const SizedBox(
-                height: 30,
-              ),
+             
 
-              Container(
-                width: MediaQuery.of(context).size.width - 36,
-                height: 55,
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(12))),
-                child: InkWell(
-                  onTap: () {
-                    if (authenticationController.profileImage != null) {
-                      if (nameTextEditingController.text.trim().isEmpty &&
-                          emailTextEditingController.text.trim().isEmpty &&
-                          passwordTextEditingController.text.trim().isEmpty &&
-                          ageTextEditingController.text.trim().isEmpty &&
-                          phoneNoTextEditingController.text.trim().isEmpty &&
-                          cityTextEditingController.text.trim().isEmpty &&
-                          countryTextEditingController.text.trim().isEmpty &&
-                          profileHeadingTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          lookingForInapartnerTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          heightTextEditingController.text.trim().isEmpty &&
-                          bodyTypeTextEditingController.text.trim().isEmpty &&
-                          weightTextEditingController.text.trim().isEmpty &&
-                          drinkTextEditingController.text.trim().isEmpty &&
-                          smokeTextEditingController.text.trim().isEmpty &&
-                          martialStatusTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          haveChildrenTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          noOfChildrenTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          professionTextEditingController.text.trim().isEmpty &&
-                          employmentStatusTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          incomeTextEditingController.text.trim().isEmpty &&
-                          livingSituationTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          willingToRelocateTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          relationshipYouAreLookingForTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          nationalityTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          educationTextEditingController.text.trim().isEmpty &&
-                          languageSpokenTextEditingController.text
-                              .trim()
-                              .isEmpty &&
-                          religionTextEditingController.text.trim().isEmpty &&
-                          ethnicityTextEditingController.text.trim().isEmpty)
-                          {
-                           //
-                          } 
-                      else {
-                        Get.snackbar('A Field is Empty',
-                            'Please fill out all field in text fields');
-                      }
-                    } else {
-                      Get.snackbar('Image File Missing ',
-                          'Please Pick from Gallery or capture with camera');
-                    }
-                  },
-                  child: const Center(
-                    child: Text(
-                      'Create Account',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ),
+         const SizedBox(height: 20,),
+
+Container(
+  width: MediaQuery.of(context).size.width - 36,
+  height: 55,
+  decoration: const BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.all(Radius.circular(12)),
+  ),
+  child: InkWell(
+    onTap: () {
+      if (authenticationController.profileImage != null) {
+        if (nameTextEditingController.text.trim().isNotEmpty &&
+            emailTextEditingController.text.trim().isNotEmpty &&
+            passwordTextEditingController.text.trim().isNotEmpty &&
+            ageTextEditingController.text.trim().isNotEmpty &&
+            phoneNoTextEditingController.text.trim().isNotEmpty &&
+            cityTextEditingController.text.trim().isNotEmpty &&
+            countryTextEditingController.text.trim().isNotEmpty &&
+            profileHeadingTextEditingController.text.trim().isNotEmpty &&
+            lookingForInapartnerTextEditingController.text.trim().isNotEmpty &&
+            heightTextEditingController.text.trim().isNotEmpty &&
+            bodyTypeTextEditingController.text.trim().isNotEmpty &&
+            weightTextEditingController.text.trim().isNotEmpty &&
+            drinkTextEditingController.text.trim().isNotEmpty &&
+            smokeTextEditingController.text.trim().isNotEmpty &&
+            martialStatusTextEditingController.text.trim().isNotEmpty &&
+            haveChildrenTextEditingController.text.trim().isNotEmpty &&
+            noOfChildrenTextEditingController.text.trim().isNotEmpty &&
+            professionTextEditingController.text.trim().isNotEmpty &&
+            employmentStatusTextEditingController.text.trim().isNotEmpty &&
+            incomeTextEditingController.text.trim().isNotEmpty &&
+            livingSituationTextEditingController.text.trim().isNotEmpty &&
+            willingToRelocateTextEditingController.text.trim().isNotEmpty &&
+            relationshipYouAreLookingForTextEditingController.text.trim().isNotEmpty &&
+            nationalityTextEditingController.text.trim().isNotEmpty &&
+            educationTextEditingController.text.trim().isNotEmpty &&
+            languageSpokenTextEditingController.text.trim().isNotEmpty &&
+            religionTextEditingController.text.trim().isNotEmpty &&
+            ethnicityTextEditingController.text.trim().isNotEmpty) {
+          authenticationController.createNewUserAccount(
+            authenticationController.profileImage!, // 1st argument
+            nameTextEditingController.text.trim(), // 2nd
+            emailTextEditingController.text.trim(), // 3rd
+            passwordTextEditingController.text.trim(), // 4th
+            ageTextEditingController.text.trim(), // 5th
+            phoneNoTextEditingController.text.trim(), // 6th
+            cityTextEditingController.text.trim(), // 7th
+            countryTextEditingController.text.trim(), // 8th
+            profileHeadingTextEditingController.text.trim(), // 9th
+            lookingForInapartnerTextEditingController.text.trim(), // 10th
+            heightTextEditingController.text.trim(), // 11th
+            bodyTypeTextEditingController.text.trim(), // 12th
+            weightTextEditingController.text.trim(), // 13th
+            drinkTextEditingController.text.trim(), // 14th
+            smokeTextEditingController.text.trim(), // 15th
+            martialStatusTextEditingController.text.trim(), // 16th
+            haveChildrenTextEditingController.text.trim(), // 17th
+            noOfChildrenTextEditingController.text.trim(), // 18th
+            professionTextEditingController.text.trim(), // 19th
+            employmentStatusTextEditingController.text.trim(), // 20th
+            incomeTextEditingController.text.trim(), // 21st
+            livingSituationTextEditingController.text.trim(), // 22nd
+            willingToRelocateTextEditingController.text.trim(), // 23rd
+            relationshipYouAreLookingForTextEditingController.text.trim(), // 24th
+            nationalityTextEditingController.text.trim(), // 25th
+            educationTextEditingController.text.trim(), // 26th
+            languageSpokenTextEditingController.text.trim(), // 27th
+            religionTextEditingController.text.trim(), // 28th
+            ethnicityTextEditingController.text.trim(), // 29th
+            missingArgumentTextEditingController.text.trim() as int // 30th (Replace with the actual missing argument)** 
+          );
+        } else {
+          Get.snackbar(
+            'A Field is Empty',
+            'Please fill out all fields in text fields',
+          );
+        }
+      } else {
+        Get.snackbar(
+          'Image File Missing',
+          'Please pick from gallery or capture with camera',
+        );
+      }
+    },
+    child: const Center(
+      child: Text(
+        'Create Account',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  ),
+),
+
+              
               const SizedBox(
                 height: 10,
               ),
