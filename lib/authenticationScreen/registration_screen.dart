@@ -607,7 +607,7 @@ Container(
     borderRadius: BorderRadius.all(Radius.circular(12)),
   ),
   child: InkWell(
-    onTap: () {
+    onTap: ()   async {
       if (authenticationController.profileImage != null) {
         if (nameTextEditingController.text.trim().isNotEmpty &&
             emailTextEditingController.text.trim().isNotEmpty &&
@@ -637,7 +637,7 @@ Container(
             languageSpokenTextEditingController.text.trim().isNotEmpty &&
             religionTextEditingController.text.trim().isNotEmpty &&
             ethnicityTextEditingController.text.trim().isNotEmpty) {
-          authenticationController.createNewUserAccount(
+            await   authenticationController.createNewUserAccount(
             authenticationController.profileImage!, // 1st argument
             nameTextEditingController.text.trim(), // 2nd
             emailTextEditingController.text.trim(), // 3rd
@@ -669,11 +669,20 @@ Container(
             ethnicityTextEditingController.text.trim(), // 29th
             missingArgumentTextEditingController.text.trim() as int // 30th (Replace with the actual missing argument)** 
           );
+             setState(() {
+               showProgressBar = false;
+             });
+             
+
+
+
         } else {
           Get.snackbar(
             'A Field is Empty',
             'Please fill out all fields in text fields',
           );
+
+          Get
         }
       } else {
         Get.snackbar(
