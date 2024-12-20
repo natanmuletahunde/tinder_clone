@@ -6,7 +6,7 @@ class Person {
   String? name;
   String? email;
   String?password;
-  String? age;
+  int? age;
   String? phoneNo;
   String? city;
   String? country;

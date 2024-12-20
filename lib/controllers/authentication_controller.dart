@@ -103,7 +103,7 @@ class AuthenticationController extends GetxController {
         name: name,
         email: email,
         password: password,
-        age: age,
+        age: int.parse(age),
         phoneNo: phoneNo,
         city: city,
         country: country,

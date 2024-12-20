@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tinder/controllers/authentication_controller.dart';
+import 'package:tinder/homeScreen/home_screen.dart';
 import 'package:tinder/widgets/custom_text_field_widget.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -682,7 +683,7 @@ Container(
             'Please fill out all fields in text fields',
           );
 
-          Get
+          Get.to(HomeScreen());
         }
       } else {
         Get.snackbar(
