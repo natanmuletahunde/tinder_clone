@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:tinder/authenticationScreen/login_screen.dart';
 import 'package:tinder/homeScreen/home_screen.dart';
 import 'package:tinder/models/person.dart' as personModel;
 
@@ -60,6 +61,19 @@ class AuthenticationController extends GetxController {
 
     String downloadUrlOfImage = await snapshot.ref.getDownloadURL();
     return downloadUrlOfImage;
+  }
+
+checkIfUserIsLoggedIn(User?  currentUser){
+        if(currentUser != null){
+            Get.to( const LoginScreen());   
+        }
+        else{
+          Get.to( const HomeScreen());
+        }
+} 
+@override
+void onReady(){
+  super.onReady();
   }
 
   createNewUserAccount(
@@ -148,4 +162,5 @@ class AuthenticationController extends GetxController {
       Get.snackbar('Account Creation Unsuccessful', 'Error occured: $errorMsg');
     }
   }
+
 }
