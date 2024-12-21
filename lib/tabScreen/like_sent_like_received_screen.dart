@@ -14,7 +14,7 @@ class _LikeSentLikeReceivedScreenState extends State<LikeSentLikeReceivedScreen>
      body: Center(
       child: Text(
         'Like Sent/Like Received Screen',
-        style: TextStyle(fontSize: 24,
+        style: TextStyle(fontSize: 20,
         
         fontWeight: FontWeight.bold,
         color: Colors.white),

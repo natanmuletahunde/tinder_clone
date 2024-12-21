@@ -32,9 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white10,
         selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white12,
+        unselectedItemColor: Colors.white24,
         currentIndex: screenIndex,
         items: const [
           BottomNavigationBarItem(
@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: tabScreenList[screenIndex], // Switches between screens
+      body: tabScreenList[screenIndex], 
     );
   }
 }

@@ -16,7 +16,7 @@ class _FavoriteSentFavoriteReceivedScreenState extends State<FavoriteSentFavorit
               'FavoriteSentFavoriteReceivedScreen',
               style: 
               TextStyle(
-                fontSize: 30,
+                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 color: Colors.white
               ),
