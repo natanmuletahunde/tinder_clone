@@ -11,7 +11,8 @@ import 'package:tinder/models/person.dart' as personModel;
 
 class AuthenticationController extends GetxController {
   static AuthenticationController get instance => Get.find();
-
+// ignore: non_constant_identifier_names
+late  Rx<User?> FirebaseCurrentUser;
   // Observable for storing the picked file
   Rx<File?> pickedFile = Rx<File?>(null);
 
@@ -74,6 +75,10 @@ checkIfUserIsLoggedIn(User?  currentUser){
 @override
 void onReady(){
   super.onReady();
+  FirebaseCurrentUser = Rx<User?>(FirebaseAuth.instance.currentUser);
+  FirebaseCurrentUser.bindStream(FirebaseAuth.instance.authStateChanges());
+
+  ever(FirebaseCurrentUser, checkIfUserIsLoggedIn,);
   }
 
   createNewUserAccount(
