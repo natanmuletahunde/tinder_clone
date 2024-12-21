@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class SwippingScreen extends StatefulWidget {
   const SwippingScreen({super.key});
@@ -8,100 +10,126 @@ class SwippingScreen extends StatefulWidget {
 }
 
 class _SwippingScreenState extends State<SwippingScreen> {
-  // Dummy data for posts
-  final List<Map<String, String>> posts = List.generate(
-    10,
-    (index) => {
-      "name": "User ${index + 1}",
-      "photoUrl": "https://via.placeholder.com/150", // Placeholder image
-      "post": "This is the post content for User ${index + 1}.",
-    },
-  );
+  List<dynamic> articles = [];
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchNews();
+  }
+
+  Future<void> fetchNews() async {
+    const String apiUrl =
+        'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=5e8ed12949814176ab54b11ee8096c4e';
+
+    try {
+      final response = await http.get(Uri.parse(apiUrl));
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        setState(() {
+          articles = data['articles'];
+          isLoading = false;
+        });
+      } else {
+        throw Exception('Failed to load news');
+      }
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+      });
+      print('Error fetching news: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Swiping Screen'),
+        title: const Text('News Feed'),
         backgroundColor: Colors.black,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: posts.map((post) {
-            return Card(
-              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-              color: Colors.grey[900],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundImage: NetworkImage(post["photoUrl"]!),
+      body: isLoading
+          ? const Center(
+              child: CircularProgressIndicator(),
+            )
+          : articles.isEmpty
+              ? const Center(
+                  child: Text(
+                    'No news available.',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                )
+              : SingleChildScrollView(
+                  child: Column(
+                    children: articles.map((article) {
+                      return Card(
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        const SizedBox(width: 10),
-                        Text(
-                          post["name"]!,
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      post["post"]!,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.white70,
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
+                        elevation: 5,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            IconButton(
-                              icon: const Icon(Icons.thumb_up, color: Colors.white),
-                              onPressed: () {},
-                            ),
-                            const Text(
-                              "Like",
-                              style: TextStyle(color: Colors.white),
-                            ),
+                            if (article['urlToImage'] != null)
+                              ClipRRect(
+                                borderRadius: const BorderRadius.vertical(
+                                    top: Radius.circular(10)),
+                                child: Image.network(
+                                  article['urlToImage'],
+                                  height: 200,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    article['title'] ?? 'No Title',
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    article['description'] ?? 'No Description',
+                                    style: const TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      ElevatedButton.icon(
+                                        onPressed: () {},
+                                        icon: const Icon(Icons.thumb_up),
+                                        label: const Text('Like'),
+                                      ),
+                                      ElevatedButton.icon(
+                                        onPressed: () {},
+                                        icon: const Icon(Icons.comment),
+                                        label: const Text('Comment'),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
                           ],
                         ),
-                        Row(
-                          children: [
-                            IconButton(
-                              icon: const Icon(Icons.comment, color: Colors.white),
-                              onPressed: () {},
-                            ),
-                            const Text(
-                              "Comment",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                      );
+                    }).toList(),
+                  ),
                 ),
-              ),
-            );
-          }).toList(),
-        ),
-      ),
-      backgroundColor: Colors.black,
     );
   }
 }
