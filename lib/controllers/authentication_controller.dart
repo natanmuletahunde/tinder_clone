@@ -131,6 +131,7 @@ class AuthenticationController extends GetxController {
           .createUserWithEmailAndPassword(email: email, password: password);
       String urlOfDownloadedImage = await uploadImageToStorage(imageProfile);
       personModel.Person personInstance = personModel.Person(
+        uid:FirebaseAuth.instance.currentUser!.uid,
         imageProfile: urlOfDownloadedImage,
         name: name,
         email: email,

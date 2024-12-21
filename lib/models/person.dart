@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Person {
   // Personal Information
+  String uid;
+
   String? imageProfile;
   String? name;
   String? email;
@@ -40,6 +42,7 @@ class Person {
   String? ethnicity;
 
   Person({
+    required this.uid,
     this.imageProfile,
     this.name,
     this.email,
@@ -78,6 +81,7 @@ class Person {
 
     return Person(
       // Personal Information
+      uid: dataSnapshot['uid'],
       imageProfile: dataSnapshot['imageProfile'],
       name: dataSnapshot['name'],
       email: dataSnapshot['email'],
@@ -117,7 +121,8 @@ class Person {
     );
   }
  Map<String, dynamic> toJson() => {
-  // Personal Information
+  // Personal Informationi
+  "uid":uid,
   "imageProfile": imageProfile,
   "name": name,
   "email": email,
