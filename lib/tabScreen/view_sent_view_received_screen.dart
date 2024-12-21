@@ -11,6 +11,16 @@ class ViewSentViewReceivedScreen extends StatefulWidget {
 class _ViewSentViewReceivedScreenState extends State<ViewSentViewReceivedScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+
+      body: Center(
+        child:   Text('View Sent View Received Screen',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+          color:Colors.white
+        ),),
+      ),
+    );
   }
 }
