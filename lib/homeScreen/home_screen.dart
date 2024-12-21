@@ -13,30 +13,68 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-   
-   int screenIndex = 0;
-   List  tabScreenList =  [
+  int screenIndex = 0;
+  List tabScreenList = [
     SwippingScreen(),
     ViewSentViewReceivedScreen(),
     FavoriteSentFavoriteReceivedScreen(),
     LikeSentLikeReceivedScreen(),
-    UserDetailsScreen()
-   ];
-
-
+    UserDetailsScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-
-      body: Center(
-        child:   Text('Welcome ',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-          color:Colors.white
-        ),),
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (int index) {
+          setState(() {
+            screenIndex = index;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white12,
+        currentIndex: screenIndex,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.remove_red_eye,
+              size: 30,
+            ),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.star,
+              size: 30,
+            ),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite,
+              size: 30,
+            ),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              size: 30,
+            ),
+            label: "",
+          ),
+        ],
       ),
+      body: tabScreenList[screenIndex], // Switches between screens
     );
   }
 }
