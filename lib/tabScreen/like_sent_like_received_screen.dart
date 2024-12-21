@@ -20,13 +20,13 @@ class _LikeSentLikeReceivedScreenState
 
   // Mock data for Likes Sent and Likes Received
   final List<Map<String, String>> _likesSent = [
-    {'name': 'John Doe', 'details': 'Loves hiking', 'image': 'https://via.placeholder.com/100'},
-    {'name': 'Emma Stone', 'details': 'Coffee enthusiast', 'image': 'https://via.placeholder.com/100'},
+    {'name': 'John Doe', 'details': 'Loves hiking', 'image': 'https://static.next.co.uk/resource/blob/665954/cd4a060b600bd320aca95f0ffbfe7185/mw-knitwear-mob-data.jpg'},
+    {'name': 'Emma Stone', 'details': 'Coffee enthusiast', 'image': 'https://res.cloudinary.com/the-groomsman-suit/image/upload/f_jpg,h_1340,w_1624,q_auto:eco,f_auto/v1/gatsby-cloudinary/pages/index/spotlight-collection-mens-2?_a=AXAH4S10'},
   ];
 
   final List<Map<String, String>> _likesReceived = [
-    {'name': 'Sophia Smith', 'details': 'Food blogger', 'image': 'https://via.placeholder.com/100'},
-    {'name': 'Liam Johnson', 'details': 'Traveler', 'image': 'https://via.placeholder.com/100'},
+    {'name': 'Sophia Smith', 'details': 'Food blogger', 'image': 'https://d1fufvy4xao6k9.cloudfront.net/images/blog/posts/2023/10/hockerty_mens_business_casual_style_743a6931_9bdd_4b4c_b5ba_ee56d4bc2909.jpg'},
+    {'name': 'Liam Johnson', 'details': 'Traveler', 'image': 'https://www.themodestman.com/wp-content/uploads/2021/04/Indian-Mens-Hairstyles.jpg'},
   ];
 
   @override

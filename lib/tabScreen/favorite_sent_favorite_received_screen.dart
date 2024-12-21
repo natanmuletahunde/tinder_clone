@@ -27,9 +27,9 @@ class _FavoriteSentFavoriteReceivedScreenState
   ];
 
   final List<Map<String, String>> _favoritesReceived = [
-    {'name': 'Sophia Smith', 'details': 'Food blogger', 'image': 'https://via.placeholder.com/100'},
-    {'name': 'Liam Johnson', 'details': 'Traveler', 'image': 'https://via.placeholder.com/100'},
-    {'name': 'Olivia Brown', 'details': 'Dog lover', 'image': 'https://via.placeholder.com/100'},
+    {'name': 'Sophia Smith', 'details': 'Food blogger', 'image': 'https://static.vecteezy.com/system/resources/thumbnails/036/068/201/small_2x/ai-generated-beautiful-women-wearing-hijab-generative-ai-photo.jpg'},
+    {'name': 'Liam Johnson', 'details': 'Traveler', 'image': 'https://www.apetogentleman.com/wp-content/uploads/2022/03/1960s-mens-fashion.jpg'},
+    {'name': 'Olivia Brown', 'details': 'Dog lover', 'image': 'https://menshaircuts.com/wp-content/uploads/2024/03/tp-mens-long-hairstyles-500x333.jpg'},
   ];
 
   @override
