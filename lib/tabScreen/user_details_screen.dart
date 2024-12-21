@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class UserDetailsScreen extends StatefulWidget {
@@ -18,6 +19,16 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
          ),
          ),
          centerTitle: true,
+         actions: [
+          IconButton(
+            onPressed: (){
+              FirebaseAuth.instance.signOut();
+            }, icon:const Icon(
+              Icons.logout,
+              size: 30,
+            )
+          ),
+         ],
       ),
       body: const Center(
         child: 
