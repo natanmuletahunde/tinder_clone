@@ -33,10 +33,10 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
       body: const Center(
         child: 
         Text(
-          'User Details Screen',
+          'User Details ',
           style: TextStyle(fontSize: 24,
           fontWeight: FontWeight.bold,
-          color: Colors.white),
+          color: Colors.green),
         ),
       ),
     );
