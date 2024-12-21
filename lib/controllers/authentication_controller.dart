@@ -11,8 +11,10 @@ import 'package:tinder/models/person.dart' as personModel;
 
 class AuthenticationController extends GetxController {
   static AuthenticationController get instance => Get.find();
-// ignore: non_constant_identifier_names
-late  Rx<User?> FirebaseCurrentUser;
+
+  // Firebase Auth current user
+  late Rx<User?> FirebaseCurrentUser;
+
   // Observable for storing the picked file
   Rx<File?> pickedFile = Rx<File?>(null);
 
@@ -20,6 +22,7 @@ late  Rx<User?> FirebaseCurrentUser;
 
   get imageFile => null;
 
+  // Pick image from gallery
   pickImageFileFromGallery() async {
     try {
       XFile? imageFile =
@@ -34,8 +37,7 @@ late  Rx<User?> FirebaseCurrentUser;
     }
   }
 
-  // Method to capture an image from the camera
-
+  // Capture image using the camera
   captureImageFromPhoneCamera() async {
     try {
       XFile? imageFile =
@@ -50,37 +52,49 @@ late  Rx<User?> FirebaseCurrentUser;
     }
   }
 
+  // Upload image to Firebase Storage
   Future<String> uploadImageToStorage(File imageProfile) async {
-    // Accepting imageProfile as a parameter
     Reference referenceStorage = FirebaseStorage.instance
         .ref()
         .child('Profile Images')
         .child(FirebaseAuth.instance.currentUser!.uid);
-    UploadTask task =
-        referenceStorage.putFile(imageProfile); // Using imageProfile here
+    UploadTask task = referenceStorage.putFile(imageProfile);
     TaskSnapshot snapshot = await task;
-
     String downloadUrlOfImage = await snapshot.ref.getDownloadURL();
     return downloadUrlOfImage;
   }
 
-checkIfUserIsLoggedIn(User?  currentUser){
-        if(currentUser != null){
-            Get.to( const LoginScreen());   
-        }
-        else{
-          Get.to( const HomeScreen());
-        }
-} 
-@override
-void onReady(){
-  super.onReady();
-  FirebaseCurrentUser = Rx<User?>(FirebaseAuth.instance.currentUser);
-  FirebaseCurrentUser.bindStream(FirebaseAuth.instance.authStateChanges());
-
-  ever(FirebaseCurrentUser, checkIfUserIsLoggedIn,);
+  // Check if the user is logged in or not
+  checkIfUserIsLoggedIn(User? currentUser) {
+    if (currentUser != null) {
+      Get.offAll(() => const HomeScreen()); // Navigate to HomeScreen
+    } else {
+      Get.offAll(() => const LoginScreen()); // Navigate to LoginScreen
+    }
   }
 
+  // Fixed onReady logic
+  @override
+  void onReady() {
+    super.onReady();
+    FirebaseCurrentUser = Rx<User?>(FirebaseAuth.instance.currentUser);
+
+    // Bind the stream to track auth state changes
+    FirebaseCurrentUser.bindStream(FirebaseAuth.instance.authStateChanges());
+
+    // Listen to FirebaseCurrentUser changes and handle navigation
+    ever<User?>(FirebaseCurrentUser, (user) {
+      if (user != null) {
+        print("User logged in: ${user.email}");
+        Get.offAll(() => const HomeScreen()); // Navigate to HomeScreen
+      } else {
+        print("User logged out");
+        Get.offAll(() => const LoginScreen()); // Navigate to LoginScreen
+      }
+    });
+  }
+
+  // Create a new user account
   createNewUserAccount(
     File imageProfile,
     String name,
@@ -111,13 +125,11 @@ void onReady(){
     String languageSpoken,
     String religion,
     String ethnicity,
-    // int publishedDateTime,
   ) async {
     try {
       UserCredential credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-      String urlOfDownloadedImage = await uploadImageToStorage(
-          imageProfile); // Now passing imageProfile correctly
+      String urlOfDownloadedImage = await uploadImageToStorage(imageProfile);
       personModel.Person personInstance = personModel.Person(
         imageProfile: urlOfDownloadedImage,
         name: name,
@@ -129,14 +141,9 @@ void onReady(){
         country: country,
         profileHeading: profileHeading,
         lookingForInAPartner: lookingForInAPartner,
-        // publishedDateTime: publishedDateTime,
-
-        // Appearance
         height: height,
         bodyType: bodyType,
         weight: weight,
-
-        // Lifestyle
         drink: drink,
         smoke: smoke,
         maritalStatus: maritalStatus,
@@ -148,8 +155,6 @@ void onReady(){
         livingSituation: livingSituation,
         willingToRelocate: willingToRelocate,
         relationshipYouAreLookingFor: relationshipYouAreLookingFor,
-
-        // Background - Cultural Values
         nationality: nationality,
         education: education,
         languageSpoken: languageSpoken,
@@ -160,12 +165,10 @@ void onReady(){
           .collection('users')
           .doc(FirebaseAuth.instance.currentUser!.uid)
           .set(personInstance.toJson());
-         Get.snackbar('Account created ','Congratulations');
-         Get.to(const HomeScreen());
-
+      Get.snackbar('Account created', 'Congratulations');
+      Get.to(const HomeScreen());
     } catch (errorMsg) {
-      Get.snackbar('Account Creation Unsuccessful', 'Error occured: $errorMsg');
+      Get.snackbar('Account Creation Unsuccessful', 'Error occurred: $errorMsg');
     }
   }
-
 }
